@@ -16,7 +16,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		<h1><?= $fejlec['cim'] ?></h1>
 		<?php if (isset($fejlec['motto'])) { ?><h2><?= $fejlec['motto'] ?></h2><?php } ?>
-		<?php if(isset($_SESSION['login'])) { ?>Bejlentkezve: <strong><?= $_SESSION['csn']." ".$_SESSION['un']." (".$_SESSION['login'].")" ?></strong><?php } ?>
+		<?php if(isset($_SESSION['login'])) { ?>
+  Bejelentkezve: <strong><?= $_SESSION['csn'] . " " . $_SESSION['un'] ?></strong>
+<?php } ?>
 	</header>
     <div id="wrapper">
         
@@ -33,8 +35,14 @@
         <li class="nav-item"><a class="nav-link" href="kapcsolat">Kapcsolat</a></li>
         <li class="nav-item"><a class="nav-link" href="uzenetek">Üzenetek</a></li>
         <li class="nav-item"><a class="nav-link" href="tablazat">Táblázat</a></li>
-        <li class="nav-item"><a class="nav-link" href="belepes">Belépés</a></li>
-        <li class="nav-item"><a class="nav-link" href="kilepes">Kilépés</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeria">Galéria</a></li>
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+  <li class="nav-item">
+    <a class="nav-link" href="kilepes">Kilépés (<?= $_SESSION['csn'] . " " . $_SESSION['un'] ?>)</a>
+  </li>
+<?php else: ?>
+  <li class="nav-item"><a class="nav-link" href="belepes">Belépés</a></li>
+<?php endif; ?>
       </ul>
     </div>
   </div>

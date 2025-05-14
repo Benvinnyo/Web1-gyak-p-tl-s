@@ -11,8 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (count($hibak) === 0) {
         try {
-            $dbh = new PDO('mysql:host=localhost;dbname=airsoft', 'airsoft', 'Sajtoskifli18', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-            $stmt = $dbh->prepare("INSERT INTO uzenetek (nev, email, uzenet) VALUES (?, ?, ?)");
+            $dbh = new PDO(
+        'mysql:host=localhost;dbname=airsoft',
+        'root',
+        '',
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+      );
+      $stmt = $dbh->prepare("INSERT INTO uzenetek (nev, email, uzenet) VALUES (?, ?, ?)");
             $stmt->execute([$nev, $email, $uzenet]);
             echo "<h2>Köszönjük az üzenetet!</h2>";
             echo "<p><strong>Név:</strong> " . htmlspecialchars($nev) . "</p>";
@@ -28,3 +33,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
+<p><a href="uzenetek">Üzenetek megtekintése</a></p>

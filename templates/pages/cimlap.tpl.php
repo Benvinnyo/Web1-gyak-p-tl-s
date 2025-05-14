@@ -13,7 +13,7 @@
     <div class="col-md-6">
       <h5>Játék közbeni részlet (MP4)</h5>
       <video controls class="w-100" poster="images/logo.png">
-        <source src="images/video.mp4" type="video/mp4">
+        <source src="vid.mp4" type="video/mp4">
         A böngésződ nem támogatja a videó lejátszást.
       </video>
     </div>
